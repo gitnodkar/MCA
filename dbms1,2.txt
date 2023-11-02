@@ -1,0 +1,36 @@
+USE teece;
+CREATE TABLE stud_info (ROLL_NO char(10), NAME varchar(30), email_ID varchar(30), MOBILE_NO char(10), COURSE varchar(20), MARKS char(10));
+ALTER TABLE stud_info ADD city varchar(30);
+ALTER TABLE stud_info DROP city;
+ALTER TABLE stud_info ADD city varchar(30);
+ALTER TABLE stud_info RENAME COLUMN city to address;
+CREATE VIEW V2 as
+SELECT ROLL_NO , NAME FROM stud_info
+WHERE address='pune';
+DROP VIEW V2;
+CREATE INDEX I1
+ON stud_info (NAME,ROLL_NO,MOBILE_NO); 
+DROP INDEX I1 
+ON stud_info;
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (3,'Vedant',11111111,'Pune',75);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (2,'Samarth',11111112,'Pune',50);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (1,'Akash',11111113,'Pimpri',65);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (65,'Sourabh',11111114,'Pimpri',87);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (55,'Ganesh',11111115,'Solapur',42);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (69,'Varad',11111116,'Mumbai',69);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (70,'Harsh',11111117,'Pune',40);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (56,'Ved',11111118,'Bibwewadi',52);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (4,'Kapil',11111119,'Shegaon',45);
+INSERT INTO stud_info (ROLL_NO,NAME,MOBILE_NO,address,MARKS)
+VALUES (5,'Mohanish',11111110,'Pune',23);
+SELECT NAME, MARKS from stud_info where MARKS>=40 and address='Pune';
+SELECT * from stud_info where MARKS<90 and address='Pimpri';
